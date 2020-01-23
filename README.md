@@ -1,6 +1,4 @@
-## Description
-
-[Nest](https://github.com/nestjs/nest) custom starter template repository.
+# [Nest](https://github.com/nestjs/nest) custom starter template repository
 
 ## Installation
 
