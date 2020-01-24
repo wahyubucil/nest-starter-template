@@ -1,4 +1,6 @@
 import * as dotenv from 'dotenv';
+import * as typeOrm from '../../ormconfig';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 dotenv.config();
 
@@ -17,6 +19,10 @@ class Config {
   get isProduction(): boolean {
     const nodeEnv = this.get('NODE_ENV');
     return nodeEnv === 'production';
+  }
+
+  get typeOrmConfig(): TypeOrmModuleOptions {
+    return typeOrm;
   }
 }
 
