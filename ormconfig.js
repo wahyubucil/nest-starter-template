@@ -11,15 +11,18 @@ module.exports = {
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
 
+  // Using dist because of this: https://stackoverflow.com/a/59607836
   entities: ['dist/**/*.entity.js'],
 
-  migrationsTableName: 'migration',
-
-  migrations: ['src/database/migration/*.ts'],
+  migrations: ['dist/database/migration/*.js'],
 
   cli: {
     migrationsDir: 'src/database/migration',
   },
 
+  migrationsTableName: 'migration',
+
   ssl: isProduction,
+
+  logging: true,
 };
