@@ -4,6 +4,7 @@ import {
   Column,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 export abstract class BaseEntity {
   @PrimaryGeneratedColumn('increment')
@@ -16,5 +17,6 @@ export abstract class BaseEntity {
   updatedAt: Date;
 
   @Column({ type: 'boolean', default: false })
+  @Exclude()
   isArchived: boolean;
 }
