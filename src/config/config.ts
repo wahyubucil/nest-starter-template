@@ -1,4 +1,6 @@
 import * as dotenv from 'dotenv';
+import * as ormConfig from '../../ormconfig';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 dotenv.config();
 
@@ -17,6 +19,18 @@ class Config {
   get isProduction(): boolean {
     const nodeEnv = this.get('NODE_ENV');
     return nodeEnv === 'production';
+  }
+
+  get typeOrmConfig(): TypeOrmModuleOptions {
+    // Don't use CLI config on app
+    const {
+      migrations,
+      cli,
+      migrationsTableName,
+      ...mainConfig
+    }: TypeOrmModuleOptions = ormConfig;
+
+    return mainConfig;
   }
 }
 

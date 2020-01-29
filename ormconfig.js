@@ -14,15 +14,16 @@ module.exports = {
   // Using dist because of this: https://stackoverflow.com/a/59607836
   entities: ['dist/**/*.entity.js'],
 
-  migrations: ['dist/database/migration/*.js'],
+  ssl: isProduction,
+
+  logging: true,
+
+  /* CLI config */
+  migrations: ['src/database/migration/*.ts'],
 
   cli: {
     migrationsDir: 'src/database/migration',
   },
 
   migrationsTableName: 'migration',
-
-  ssl: isProduction,
-
-  logging: true,
 };
