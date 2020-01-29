@@ -30,6 +30,10 @@ class Config {
       ...mainConfig
     }: TypeOrmModuleOptions = ormConfig;
 
+    // On app, entities should be only from dist
+    // Using dist because of this: https://stackoverflow.com/a/59607836
+    mainConfig.entities = ['dist/**/*.entity.js'];
+
     return mainConfig;
   }
 }

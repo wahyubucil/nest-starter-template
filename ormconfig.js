@@ -11,8 +11,7 @@ module.exports = {
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
 
-  // Using dist because of this: https://stackoverflow.com/a/59607836
-  entities: ['dist/**/*.entity.js'],
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
 
   ssl: isProduction,
 
