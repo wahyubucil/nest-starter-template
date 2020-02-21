@@ -17,7 +17,7 @@ async function bootstrap() {
   }
 
   app.useGlobalInterceptors(new ClassSerializerInterceptor(new Reflector()));
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
   await app.listen(config.get('PORT'));
 }
